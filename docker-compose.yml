@@ -1,0 +1,21 @@
+services:
+  catalouge:
+    build:
+      dockerfile: Catalogue.Dockerfile
+    image: ssr2702/catalouge:1.0.0
+    container_name: catalouge
+    depends_on:
+      - mongodb
+  
+  mongodb:
+    build:
+      dockerfile: mongodb.Dockerfile
+    image: ssr2702/mongodb:1.0.0
+    container_name: mongodb
+
+networks:
+  default:
+    driver: bridge
+    name: roboshop
+    external: false #if true, you need to create manualy
+      
