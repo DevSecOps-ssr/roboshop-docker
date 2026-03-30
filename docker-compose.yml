@@ -18,7 +18,7 @@ services:
     build:
       dockerfile: frontend.Dockerfile
     image: joindevops/frontend:1.0.0
-    container_name: joindevops/frontend:1.0.0
+    container_name: frontend
     ports:
       - "80:80"
     depends_on:
