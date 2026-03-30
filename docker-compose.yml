@@ -1,5 +1,5 @@
 services:
-  catalouge:
+  catalogue:
     build: 
       dockerfile: Catalogue.Dockerfile
     image: joindevops/catalogue:1.0.0
