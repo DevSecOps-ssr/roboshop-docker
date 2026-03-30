@@ -6,11 +6,32 @@ services:
     container_name: catalogue
     depends_on:
     - mongodb
+  user:
+    build:
+      dockerfile: user.Dockerfile
+    image: joindevops/user:1.0.0
+    container_name: user
+    depends_on:
+      - redis
+      - mongodb
+  frontend:
+    build:
+      dockerfile: frontend.Dockerfile
+    image: joindevops/frontend:1.0.0
+    container_name: joindevops/frontend:1.0.0
+    ports:
+      - "80:80"
+    depends_on:
+      - catalogue
+      - user
   mongodb:
     build:
       dockerfile: mongodb.Dockerfile
     image: joindevops/mongodb:1.0.0
     container_name: mongodb
+  redis:
+    image: redis:7.0
+    container_name: redis
 
 networks:
   default:
