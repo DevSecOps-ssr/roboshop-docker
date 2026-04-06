@@ -82,7 +82,7 @@ networks:
     name: roboshop
     external: false #if true, you need to create manualy
 
-  volumes:
+volumes:
   mongodb: # docker volume create mongodb
   redis:
   mysql:
